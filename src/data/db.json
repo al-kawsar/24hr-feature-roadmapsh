@@ -1,0 +1,194 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "johndoe",
+      "fullName": "John Doe",
+      "profilePicture": "https://i.pravatar.cc/150?img=12",
+      "isVerified": true
+    },
+    {
+      "id": 2,
+      "username": "janesmit",
+      "fullName": "Jane Smith",
+      "profilePicture": "https://i.pravatar.cc/150?img=5",
+      "isVerified": false
+    },
+    {
+      "id": 3,
+      "username": "mikebrown",
+      "fullName": "Mike Brown",
+      "profilePicture": "https://i.pravatar.cc/150?img=33",
+      "isVerified": true
+    },
+    {
+      "id": 4,
+      "username": "sarahwilson",
+      "fullName": "Sarah Wilson",
+      "profilePicture": "https://i.pravatar.cc/150?img=9",
+      "isVerified": false
+    },
+    {
+      "id": 5,
+      "username": "davidlee",
+      "fullName": "David Lee",
+      "profilePicture": "https://i.pravatar.cc/150?img=15",
+      "isVerified": true
+    }
+  ],
+  "stories": [
+    {
+      "id": 1,
+      "userId": 1,
+      "mediaType": "image",
+      "mediaUrl": "https://picsum.photos/400/700?random=1",
+      "caption": "Beautiful sunset! 🌅",
+      "timestamp": "2024-12-24T10:30:00Z",
+      "duration": 5,
+      "views": 234,
+      "hasViewed": false
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "mediaType": "image",
+      "mediaUrl": "https://picsum.photos/400/700?random=2",
+      "caption": "Coffee time ☕",
+      "timestamp": "2024-12-24T11:15:00Z",
+      "duration": 5,
+      "views": 198,
+      "hasViewed": false
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "mediaType": "image",
+      "mediaUrl": "https://picsum.photos/400/700?random=3",
+      "caption": "Workout done! 💪",
+      "timestamp": "2024-12-24T09:00:00Z",
+      "duration": 5,
+      "views": 445,
+      "hasViewed": false
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "mediaType": "image",
+      "mediaUrl": "https://picsum.photos/400/700?random=4",
+      "caption": "Healthy breakfast 🥗",
+      "timestamp": "2024-12-24T09:45:00Z",
+      "duration": 5,
+      "views": 389,
+      "hasViewed": false
+    },
+    {
+      "id": 5,
+      "userId": 3,
+      "mediaType": "image",
+      "mediaUrl": "https://picsum.photos/400/700?random=5",
+      "caption": "New project launch! 🚀",
+      "timestamp": "2024-12-24T08:20:00Z",
+      "duration": 5,
+      "views": 1203,
+      "hasViewed": true
+    },
+    {
+      "id": 6,
+      "userId": 3,
+      "mediaType": "image",
+      "mediaUrl": "https://picsum.photos/400/700?random=6",
+      "caption": "Team meeting",
+      "timestamp": "2024-12-24T12:00:00Z",
+      "duration": 5,
+      "views": 876,
+      "hasViewed": true
+    },
+    {
+      "id": 7,
+      "userId": 4,
+      "mediaType": "image",
+      "mediaUrl": "https://picsum.photos/400/700?random=7",
+      "caption": "Travel vibes ✈️",
+      "timestamp": "2024-12-24T07:30:00Z",
+      "duration": 5,
+      "views": 567,
+      "hasViewed": false
+    },
+    {
+      "id": 8,
+      "userId": 4,
+      "mediaType": "image",
+      "mediaUrl": "https://picsum.photos/400/700?random=8",
+      "caption": "Beach day 🏖️",
+      "timestamp": "2024-12-24T08:00:00Z",
+      "duration": 5,
+      "views": 623,
+      "hasViewed": false
+    },
+    {
+      "id": 9,
+      "userId": 5,
+      "mediaType": "image",
+      "mediaUrl": "https://picsum.photos/400/700?random=9",
+      "caption": "Food photography 📸",
+      "timestamp": "2024-12-24T11:45:00Z",
+      "duration": 5,
+      "views": 912,
+      "hasViewed": false
+    },
+    {
+      "id": 10,
+      "userId": 5,
+      "mediaType": "image",
+      "mediaUrl": "https://picsum.photos/400/700?random=10",
+      "caption": "City lights at night 🌃",
+      "timestamp": "2024-12-24T13:00:00Z",
+      "duration": 5,
+      "views": 734,
+      "hasViewed": false
+    }
+  ],
+  "storyViews": [
+    {
+      "id": 1,
+      "storyId": 5,
+      "userId": 2,
+      "timestamp": "2024-12-24T08:25:00Z"
+    },
+    {
+      "id": 2,
+      "storyId": 5,
+      "userId": 4,
+      "timestamp": "2024-12-24T08:30:00Z"
+    },
+    {
+      "id": 3,
+      "storyId": 6,
+      "userId": 1,
+      "timestamp": "2024-12-24T12:05:00Z"
+    }
+  ],
+  "storyReplies": [
+    {
+      "id": 1,
+      "storyId": 1,
+      "userId": 2,
+      "message": "Amazing view! 😍",
+      "timestamp": "2024-12-24T10:35:00Z"
+    },
+    {
+      "id": 2,
+      "storyId": 3,
+      "userId": 1,
+      "message": "Keep it up! 💪",
+      "timestamp": "2024-12-24T09:10:00Z"
+    },
+    {
+      "id": 3,
+      "storyId": 5,
+      "userId": 2,
+      "message": "Congratulations! 🎉",
+      "timestamp": "2024-12-24T08:25:00Z"
+    }
+  ]
+}
