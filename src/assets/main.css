@@ -1,0 +1,351 @@
+/* --- VARIABLE WARNA --- */
+:root {
+  --bg-body: red;
+  --bg-app: #111;
+  --bg-card: #1e293b;
+  --bg-sidebar: #111;
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --border-color: #262626;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  --accent-primary: #38bdf8;
+  --story-gradient: linear-gradient(45deg, #06b6d4, #3b82f6, #8b5cf6);
+  --story-seen: #334155;
+}
+
+/* --- RESET & BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* --- LAYOUT UTAMA --- */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 100%;
+  background-color: var(--bg-app);
+  overflow: hidden;
+}
+
+/* --- HEADER MOBILE (Top Bar) --- */
+.mobile-top-bar {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: var(--bg-app);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 20;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  font-family: "Segoe UI", cursive; /* Fallback font */
+}
+
+.mobile-actions {
+  display: flex;
+  gap: 20px;
+}
+
+/* --- SIDEBAR DESKTOP (Hidden on Mobile) --- */
+.desktop-sidebar {
+  display: none; /* Default hidden */
+  width: 245px;
+  background-color: var(--bg-sidebar);
+  border-right: 0.1px solid var(--border-color);
+  padding: 40px 24px;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.sidebar-logo {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-item.active {
+  font-weight: 700;
+}
+
+/* --- CONTENT AREA --- */
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* --- STORIES TRAY --- */
+.stories-section {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-app);
+  flex-shrink: 0;
+}
+
+.stories-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 0 16px;
+  scrollbar-width: none;
+}
+.stories-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.story-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  min-width: 72px;
+}
+
+.avatar-ring {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  padding: 3px;
+  background: var(--story-gradient);
+  position: relative;
+}
+.avatar-ring.seen {
+  background: var(--story-seen);
+}
+.avatar-ring.my-story {
+  background: transparent;
+  padding: 0;
+  width: 70px;
+  height: 70px;
+  margin: 3px;
+}
+
+.story-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--bg-app);
+  object-fit: cover;
+  background-color: var(--bg-card);
+}
+.my-story .story-avatar {
+  border: none;
+}
+
+.add-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--accent-primary);
+  border: 2px solid var(--bg-app);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.story-name {
+  font-size: 12px;
+  color: var(--text-primary);
+  max-width: 74px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* --- STORY GRID --- */
+.grid-container {
+  padding: 16px;
+  flex: 1;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Default Mobile: 2 Kolom */
+  gap: 8px;
+}
+
+.story-card {
+  aspect-ratio: 9 / 16;
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.story-card:active {
+  transform: scale(0.98);
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-avatar {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.card-user {
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.time-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--bg-overlay);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  backdrop-filter: blur(4px);
+}
+
+/* --- BOTTOM NAV (Mobile Only) --- */
+.mobile-bottom-nav {
+  height: 55px;
+  background-color: var(--bg-app);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 10px;
+  cursor: pointer;
+}
+.nav-profile-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--text-primary);
+  object-fit: cover;
+}
+
+/* ========================================= */
+/* --- MEDIA QUERIES (THE MAGIC HAPPENS) --- */
+/* ========================================= */
+
+/* Tablet & Desktop View (> 768px) */
+@media (min-width: 768px) {
+  /* Ubah Layout Body menjadi Row (Kiri: Sidebar, Kanan: Konten) */
+  .app-layout {
+    flex-direction: row;
+    margin: 0 auto; /* Tengah di layar besar */
+    height: 100vh;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+  }
+
+  /* Sembunyikan elemen Mobile */
+  .mobile-top-bar,
+  .mobile-bottom-nav {
+    display: none;
+  }
+
+  /* Tampilkan elemen Desktop */
+  .desktop-sidebar {
+    display: flex;
+  }
+
+  /* Grid Layout menjadi lebih banyak kolom */
+  .story-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 Kolom di Tablet */
+    gap: 16px;
+  }
+
+  .grid-container {
+    padding: 24px;
+  }
+}
+
+/* Large Desktop View (> 1024px) */
+@media (min-width: 1024px) {
+  .story-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 Kolom di Laptop */
+    gap: 20px;
+  }
+}
+
+/* Extra Large Desktop (> 1280px) */
+@media (min-width: 1280px) {
+  .story-grid {
+    grid-template-columns: repeat(5, 1fr); /* 5 Kolom di Monitor Besar */
+  }
+}
