@@ -49,7 +49,7 @@ const fetchStories = async () => {
     hasMore.value = page.value < pages;
     await fetchUsers(data.map((s) => s.userId));
     await nextTick();
-    observeImages();
+    // observeImages();
   } catch (err) {
     console.error("StoryBar fetch error:", err);
   } finally {
@@ -90,10 +90,6 @@ const onHorizontalScroll = () => {
   }, 100);
 };
 
-const detailStory = (username, storyId) => {
-  router.push({ name: "detail", params: { username, storyId } });
-};
-
 onMounted(() => {
   fetchStories();
 });
@@ -127,7 +123,13 @@ onBeforeUnmount(() => {
       v-slot="{ item }"
       @scroll.native="onHorizontalScroll"
     >
-      <div class="story-item" @click="detailStory(item.userName, item.id)">
+      <router-link
+        :to="{
+          name: 'detail',
+          params: { username: item.userName, storyId: item.id },
+        }"
+        class="story-item"
+      >
         <div class="avatar-ring" :class="{ seen: item.hasViewed }">
           <img
             :src="item.userAvatar"
@@ -137,7 +139,7 @@ onBeforeUnmount(() => {
           />
         </div>
         <span class="story-name">{{ item.userName }}</span>
-      </div>
+      </router-link>
     </RecycleScroller>
 
     <!-- Loading more indicator -->
@@ -153,6 +155,7 @@ onBeforeUnmount(() => {
 .story-item {
   width: 80px;
   padding: 0 4px;
+  text-decoration: none;
 }
 
 .skeleton-avatar {
