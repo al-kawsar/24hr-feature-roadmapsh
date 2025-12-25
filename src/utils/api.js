@@ -77,6 +77,11 @@ export const api = {
       `${API_BASE}/stories?userId=${userId}&_sort=-timestamp`,
     );
     if (!response.ok) throw new Error("Failed to fetch user stories");
-    return response.json();
+    const result = await response.json();
+
+    if (Array.isArray(result)) {
+      return result;
+    }
+    return result.data || [];
   },
 };
