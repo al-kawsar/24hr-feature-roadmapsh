@@ -32,13 +32,26 @@ This project is a client-side clone of the Instagram Stories feature, built with
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/al-kawsar/story-ig-clone-roadmap.sh.git
-    cd story_ig_clone
+    git clone https://github.com/al-kawsar/story-ig-clone-roadmap.sh.git story_ig_clone && cd story_ig_clone
     ```
 
 2.  **Install dependencies:**
     ```bash
     npm install
+    ```
+
+3.  **Set up environment variables:**
+
+    Create a `.env` file in the root directory by copying the example file:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    The `.env` file is used to configure the API's base URL. The default value is `http://localhost:3000`.
+
+    ```
+    VITE_API_BASE_URL=http://localhost:3000
     ```
 
 ## Available Scripts
